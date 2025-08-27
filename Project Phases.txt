@@ -1,0 +1,50 @@
+Phase 1 – Core Backend (Python basics first)
+
+Write scripts that collect system info (OS, CPU, RAM, IP, MAC, etc.).
+
+Use psutil, platform, socket.
+
+Write a basic network scanner:
+
+Get local subnet.
+
+Ping sweep or ARP scan.
+
+Collect IPs/MACs/hostnames.
+
+-----------------------------------------------------------------------
+Phase 2 – Local Flask API
+
+Install Flask.
+
+Make routes:
+
+/system → returns JSON with system info.
+
+/network → returns JSON with network scan results.
+
+-----------------------------------------------------------------------
+Phase 3 – Frontend (WebGUI in browser)
+
+Build a simple HTML/CSS/JS frontend.
+
+Page with System Info panel.
+
+Page with Network Devices table.
+
+JS fetches data from Flask routes (fetch("/system")).
+
+Add styling (Bootstrap/Tailwind for fast, clean UI).
+
+-----------------------------------------------------------------------
+Phase 4 – Polish & Extras
+
+Device visualization:
+
+Show network devices in a table (expand later into a diagram/graph if you want).
+
+Add filters/search for devices.
+
+Optional: Export results (CSV/JSON).
+
+Optional: Wrap into desktop executable (PyInstaller).
