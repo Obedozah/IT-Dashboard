@@ -1,12 +1,13 @@
 import psutil
 import platform
 import socket
+import uuid
 
 def gather_system_info():
     systemInfo = {
         "os" : {
             "platform": platform.system(),
-            "platformRelease": platform.relese(),
+            "platformRelease": platform.release(),
             "platformVersion": platform.version()
         },
         "cpu": {
@@ -24,4 +25,12 @@ def gather_system_info():
     }
     networkInfo = {
         "hostname": socket.gethostname(),
+        "ipAddress": socket.gethostbyname(networkInfo.hostname),
+        "macAddress": getMacAddress()
     }
+
+def getMacAddress():
+    macAddressBits = uuid.getnode()
+    macAddressHex = '%012x' % macAddressBits
+    macAddress = ':'.join(macAddressHex[i:i+2] for i in range(0, 12, 2))
+    return macAddress
