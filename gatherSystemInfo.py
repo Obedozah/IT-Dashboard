@@ -22,3 +22,6 @@ def gather_system_info():
             "percent": psutil.virtual_memory().percent
         }
     }
+    networkInfo = {
+        "hostname": socket.gethostname(),
+    }
