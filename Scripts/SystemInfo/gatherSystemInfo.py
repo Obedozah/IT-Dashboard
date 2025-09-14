@@ -1,21 +1,8 @@
 import psutil
 import platform
-import socket
-import uuid
-import netmaskToCIDR
+from . import network_utils as net
 
 def gather_system_info():
-
-    # Gather Network Information
-    hostname = socket.gethostname()
-    macAddress = uuid.getnode()
-    ipAddress = socket.gethostbyname(hostname)
-    subnetMask = None
-    for interface, addrs in psutil.net_if_addrs().items():
-        for addr in addrs:
-            if addr.family == socket.AF_INET and addr.address == ipAddress:
-                subnetMask = addr.netmask
-                break
 
     systemInfo = {
         "os" : {
@@ -25,7 +12,7 @@ def gather_system_info():
         },
         "hardwareHealth": {
             "cpu": {
-                "p hysicalCores": psutil.cpu_count(),
+                "physicalCores": psutil.cpu_count(),
                 "logicalCores": psutil.cpu_count(logical=True),
                 "frequency": psutil.cpu_freq()._asdict(),
                 "usagePercent": psutil.cpu_percent(interval=1)
@@ -38,10 +25,10 @@ def gather_system_info():
             }
         },
         "networkInfo": {
-            "hostname": socket.gethostname(),
-            "ipAddress": socket.gethostbyname(socket.gethostname()),
-            "macAddress": uuid.getnode(),
-            "subnetMask": subnetMask
+            "hostname": net.hostname,
+            "ipAddress": net.ipAddress,
+            "macAddress": net.macAddress,
+            "CIDR": net.CIDR
         }
     }
     return systemInfo
