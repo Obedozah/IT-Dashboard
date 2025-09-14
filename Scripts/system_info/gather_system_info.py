@@ -26,8 +26,8 @@ def gather_system_info():
         },
         "network_info": {
             "hostname": net.hostname,
-            "ip_address": net.ipAddress,
-            "mac_address": net.macAddress,
+            "ip_address": net.ip_address,
+            "mac_address": net.mac_address,
             "cidr": net.cidr
         }
     }
