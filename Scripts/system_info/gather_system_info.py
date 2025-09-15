@@ -28,7 +28,8 @@ def gather_system_info():
             "hostname": net.hostname,
             "ip_address": net.ip_address,
             "mac_address": net.mac_address,
-            "cidr": net.cidr
+            "network_address": net.network_address,
+            "broadcast_address": net.broadcast_address,
         }
     }
     return system_info
