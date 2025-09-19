@@ -1,6 +1,6 @@
 import psutil
 import platform
-from . import network_utils as net
+from scripts.system_info import network_utils as net
 
 def gather_system_info():
 
