@@ -6,5 +6,5 @@ def filter_local_arp(arp_data):
     for entry in arp_entries:
         if entry[0] == '?':
             continue
-        filtered_data.append(entry + '\n')
+        filtered_data.append(entry)
     return filtered_data
