@@ -1,6 +1,6 @@
 import psutil
 import platform
-from . import network_utils as net
+from scripts.system_info import network_utils as net
 
 def gather_system_info():
 
@@ -26,10 +26,11 @@ def gather_system_info():
         },
         "network_info": {
             "hostname": net.hostname,
-            "ip_address": net.ip_address,
             "mac_address": net.mac_address,
+            "ip_address": net.ip_address,
             "network_address": net.network_address,
             "broadcast_address": net.broadcast_address,
+            "subnet_host_range": net.subnet_host_range
         }
     }
     return system_info
