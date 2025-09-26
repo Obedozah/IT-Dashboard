@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-from system_info import gather_system_info as gsi
-
-def filter_local_arp(arp_data):
-    
-    filtered_arp_entries = []
-    arp_entries = arp_data.splitlines()
-=======
 from scripts.system_info import gather_system_info as gsi
 
 def filter_local_arp(arp_data):
@@ -16,4 +8,3 @@ def filter_local_arp(arp_data):
             continue
         filtered_data.append(entry)
     return filtered_data
->>>>>>> feature/gsi
