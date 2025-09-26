@@ -26,10 +26,11 @@ def gather_system_info():
         },
         "network_info": {
             "hostname": net.hostname,
-            "ip_address": net.ip_address,
             "mac_address": net.mac_address,
+            "ip_address": net.ip_address,
             "network_address": net.network_address,
             "broadcast_address": net.broadcast_address,
+            "subnet_host_range": net.subnet_host_range
         }
     }
     return system_info
