@@ -7,4 +7,4 @@ def filter_local_arp(arp_data):
         if entry[0] == '?':
             continue
         filtered_data.append(entry)
-    return filtered_data
+    return "\n".join(filtered_data)
