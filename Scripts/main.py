@@ -4,5 +4,6 @@ from scripts.network_scanner.local_arp import reader
 if __name__ == "__main__":
     system_info = gsi.gather_system_info()
     print(system_info)
+    print("\n")
     local_arp = reader.read_arp_table()
     print(local_arp)
