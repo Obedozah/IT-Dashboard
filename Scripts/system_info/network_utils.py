@@ -29,7 +29,6 @@ def subnet_host_range(hosts):
 # Unused variables
 default_interface = get_default_interface()
 IF_NET = netifaces.ifaddresses(default_interface).get(netifaces.AF_INET)[0]
-ip = IF_NET['addr']
 netmask = IF_NET['netmask']
 cidr = netmask_to_cidr(netmask)
 
@@ -37,7 +36,7 @@ cidr = netmask_to_cidr(netmask)
 
 hostname = socket.gethostname()
 mac_address = format_mac_address(uuid.getnode())
-ip_address = ipaddress.IPv4Interface(ip + '/' + str(cidr))
-network_address = ip_address.network
+ip_address = IF_NET['addr']
+network_address = ipaddress.ip_network(ip_address)
 broadcast_address = IF_NET['broadcast']
 subnet_host_range = subnet_host_range(network_address.hosts())
