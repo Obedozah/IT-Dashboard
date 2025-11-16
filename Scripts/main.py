@@ -6,4 +6,4 @@ if __name__ == "__main__":
     system_info = gsi.gather_system_info()
     print(json.dumps(system_info, indent = 2))
     local_arp = reader.read_arp_table()
-    print(local_arp)
+    print(json.dumps(local_arp, indent = 2))
