@@ -16,4 +16,3 @@ def get_hostname(ip, line):
         else:
             hostname = line.split('(')[0].strip()
     return hostname
-    
