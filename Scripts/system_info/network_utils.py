@@ -33,10 +33,9 @@ netmask = IF_NET['netmask']
 cidr = netmask_to_cidr(netmask)
 
 # Network util variables
-
 hostname = socket.gethostname()
 mac_address = format_mac_address(uuid.getnode())
 ip_address = IF_NET['addr']
-network_address = ipaddress.ip_network(ip_address)
+network_address = ipaddress.ip_network(f"{ip_address}/{cidr}", strict=False)
 broadcast_address = IF_NET['broadcast']
 subnet_host_range = subnet_host_range(network_address.hosts())

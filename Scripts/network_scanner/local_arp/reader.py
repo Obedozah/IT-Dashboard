@@ -13,6 +13,8 @@ def read_arp_table():
         command = ['arp', '-a']
     result = subprocess.run(command, capture_output=True, text=True)
 
+    print(result.stdout)
+
     local_arp_data = [filter(result.stdout)]
     for entry in local_arp_data[0]:
         open_ports, closed_ports = port_scan(entry['ip'])
