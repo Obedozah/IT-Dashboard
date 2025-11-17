@@ -40,7 +40,7 @@ def filter_local_arp(arp_data):
         filtered.append({
             'ip': ip,
             'mac': mac,
-            'raw_line': line
+            'line': line
         })
 
     return filtered

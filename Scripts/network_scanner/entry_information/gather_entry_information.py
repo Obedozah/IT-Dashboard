@@ -1,12 +1,12 @@
-from scripts.network_scanner.local_arp import get_hostname as host
-from scripts.network_scanner.local_arp.port_scanner import scan_ports
-from scripts.network_scanner.local_arp.vendor_lookup import vendor_lookup
-from scripts.network_scanner.local_arp.check_status import check_status
+from scripts.network_scanner.entry_information.get_hostname import get_hostname
+from scripts.network_scanner.entry_information.scan_ports import scan_ports
+from scripts.network_scanner.entry_information.vendor_lookup import vendor_lookup
+from scripts.network_scanner.entry_information.check_status import check_status
 
 def gather_entry_information(local_arp_data):
     for entry in local_arp_data[0]:
         # Hostname/Vendor
-        entry['hostname'] = host.get_hostname(entry['ip'], ['line'])
+        entry['hostname'] = get_hostname(entry['ip'], entry['line'])
         vendor = vendor_lookup(entry['mac'])
         entry['vendor'] = vendor
 
