@@ -1,0 +1,16 @@
+from scripts.system_info import gather_system_info as gsi
+import socket
+
+def get_hostname(ip):
+    system_info = gsi.gather_system_info()
+    platform = system_info['os']['platform'].lower()
+
+    if platform.lower() != 'darwin':
+        try:
+            hostname = socket.gethostbyaddr(ip)[0]
+        except socket.herror:
+            return "N/A"
+    else:
+        return "N/A"
+
+    return hostname

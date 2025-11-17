@@ -1,5 +1,6 @@
 import re
 import ipaddress
+from scripts.network_scanner.local_arp.get_hostname import get_hostname as get_host
 
 def filter_local_arp(arp_data):
     filtered = []
@@ -9,22 +10,30 @@ def filter_local_arp(arp_data):
         # Filtering out irrelevant lines
         if not line:
             continue
-        if line.lower().startswith('interface:') or line.lower().startswith('internet address'):
+        # Irrelevant lines for Windows/Linux ARP output
+        if line.lower().startswith('interface:') or line.lower().startswith('internet address') or line.lower().startswith('address'):
             continue
+
+        # Extract IP/MAC Address using regex into Strings
         ip_match = re.search(r'\d+\.\d+\.\d+\.\d+', line)
-        if not ip_match:
-            continue
+        mac_match = re.search(r'(([0-9A-Fa-f]{1,2}[:\-]){5}([0-9A-Fa-f]{1,2}))', line)
         ip = ip_match.group(0)
+        mac = mac_match.group(0)
+
+        # Filter bad IP/MAC Address
+        if not ip_match or not mac_match:
+            continue
         if is_bad_ip(ip):
             continue
-        mac_match = re.search(r'(([0-9A-Fa-f]{1,2}[:\-]){5}([0-9A-Fa-f]{1,2}))', line)
-        if not mac_match:
-            continue
-        mac = mac_match.group(0)
         if mac.lower() == 'ff:ff:ff:ff:ff:ff' or mac.lower() == '00:00:00:00:00:00':
             continue
 
+        # Reverse DNS lookup for hostnames
+        hostname = get_host(ip)
+
+        # Add to filtered list
         filtered.append({
+            'hostname': hostname,
             'ip': ip,
             'mac': mac,
             'raw_line': line

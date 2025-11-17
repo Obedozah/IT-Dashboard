@@ -4,10 +4,10 @@ from scripts.network_scanner.local_arp.filter import filter_local_arp as filter
 from scripts.network_scanner.local_arp.port_scanner import scan_ports as port_scan
 
 system_info = gsi.gather_system_info()
-os = system_info['os']['platform'].lower()
+platform = system_info['os']['platform'].lower()
 def read_arp_table():
     # Find ARP entries
-    if os == 'linux':
+    if platform.lower() == 'linux':
         command = ['arp', '-n']
     else:
         command = ['arp', '-a']
