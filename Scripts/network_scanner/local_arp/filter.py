@@ -14,22 +14,24 @@ def filter_local_arp(arp_data):
         if line.lower().startswith('interface:') or line.lower().startswith('internet address') or line.lower().startswith('address'):
             continue
 
-        # Extract IP/MAC Address using regex into Strings
+        # Extract/Filter IP Address
         ip_match = re.search(r'\d+\.\d+\.\d+\.\d+', line)
-        mac_match = re.search(r'(([0-9A-Fa-f]{1,2}[:\-]){5}([0-9A-Fa-f]{1,2}))', line)
-        ip = ip_match.group(0)
-        mac = mac_match.group(0)
-
-        # Filter bad IP/MAC Address
-        if not ip_match or not mac_match:
+        if not ip_match:
             continue
+        ip = ip_match.group(0)
         if is_bad_ip(ip):
             continue
+
+        # Extract/Filter Mac Address
+        mac_match = re.search(r'(([0-9A-Fa-f]{1,2}[:\-]){5}([0-9A-Fa-f]{1,2}))', line)
+        if not mac_match:
+            continue
+        mac = mac_match.group(0)
         if mac.lower() == 'ff:ff:ff:ff:ff:ff' or mac.lower() == '00:00:00:00:00:00':
             continue
 
         # Reverse DNS lookup for hostnames
-        hostname = host.get_hostname(ip)
+        hostname = host.get_hostname(ip, line)
 
         # Add to filtered list
         filtered.append({

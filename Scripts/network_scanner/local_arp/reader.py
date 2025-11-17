@@ -1,7 +1,7 @@
 import subprocess
 from scripts.system_info import gather_system_info as gsi
 from scripts.network_scanner.local_arp.filter import filter_local_arp as filter
-from scripts.network_scanner.local_arp.port_scanner import scan_ports as port_scan
+from scripts.network_scanner.local_arp.port_scanner import scan_ports
 
 system_info = gsi.gather_system_info()
 platform = system_info['os']['platform'].lower()
@@ -17,7 +17,7 @@ def read_arp_table():
 
     local_arp_data = [filter(result.stdout)]
     for entry in local_arp_data[0]:
-        open_ports, closed_ports = port_scan(entry['ip'])
+        open_ports, closed_ports = scan_ports(entry['ip'])
         entry['open_ports'] = open_ports
         entry['closed_ports'] = closed_ports
 
