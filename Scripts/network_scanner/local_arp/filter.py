@@ -1,6 +1,6 @@
 import re
 import ipaddress
-from scripts.network_scanner.local_arp.get_hostname import get_hostname as get_host
+from scripts.network_scanner.local_arp import get_hostname as host
 
 def filter_local_arp(arp_data):
     filtered = []
@@ -29,7 +29,7 @@ def filter_local_arp(arp_data):
             continue
 
         # Reverse DNS lookup for hostnames
-        hostname = get_host(ip)
+        hostname = host.get_hostname(ip)
 
         # Add to filtered list
         filtered.append({
