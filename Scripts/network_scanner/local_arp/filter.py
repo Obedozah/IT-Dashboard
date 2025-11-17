@@ -1,6 +1,12 @@
 import re
 import ipaddress
-from scripts.network_scanner.local_arp import get_hostname as host
+
+def is_bad_ip(ip):
+    ip_object = ipaddress.ip_address(ip)
+    if ip_object.is_loopback: return True
+    if ip_object.is_multicast: return True
+    if ip_object.is_unspecified: return True
+    return False
 
 def filter_local_arp(arp_data):
     filtered = []
@@ -30,22 +36,11 @@ def filter_local_arp(arp_data):
         if mac.lower() == 'ff:ff:ff:ff:ff:ff' or mac.lower() == '00:00:00:00:00:00':
             continue
 
-        # Reverse DNS lookup for hostnames
-        hostname = host.get_hostname(ip, line)
-
         # Add to filtered list
         filtered.append({
-            'hostname': hostname,
             'ip': ip,
             'mac': mac,
             'raw_line': line
         })
 
     return filtered
-
-def is_bad_ip(ip):
-    ip_object = ipaddress.ip_address(ip)
-    if ip_object.is_loopback: return True
-    if ip_object.is_multicast: return True
-    if ip_object.is_unspecified: return True
-    return False
