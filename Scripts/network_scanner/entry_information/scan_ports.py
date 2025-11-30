@@ -1,3 +1,4 @@
+import threading
 import socket
 
 def scan_ports(ip):
@@ -7,7 +8,7 @@ def scan_ports(ip):
 
     for port in common_ports:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.settimeout(1)
+        s.settimeout(0.1)
         result = s.connect_ex((ip, port))
         s.close()
 
@@ -15,5 +16,6 @@ def scan_ports(ip):
             open_ports.append(port)
         else:
             closed_ports.append(port)
+        print(f"Scanned port {port} on {ip}: {'Open' if result == 0 else 'Closed'}")
 
     return open_ports, closed_ports
