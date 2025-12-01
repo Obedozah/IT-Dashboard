@@ -16,4 +16,5 @@ def read_arp_table():
     # Find Unique Arp Entry Information
     local_arp_data = [filter(result.stdout)]
     local_arp_data = gather_entry_information(local_arp_data)
+
     return local_arp_data
