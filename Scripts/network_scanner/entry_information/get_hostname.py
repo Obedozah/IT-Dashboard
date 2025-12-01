@@ -1,7 +1,7 @@
 from scripts.system_info import gather_system_info as gsi
 import socket
 
-def get_hostname(ip, line):
+def get_hostname(ip, raw_line):
     system_info = gsi.gather_system_info()
     platform = system_info['os']['platform'].lower()
 
@@ -11,8 +11,8 @@ def get_hostname(ip, line):
         except socket.herror:
             return "N/A"
     else:
-        if line.lower().startswith('?'):
+        if raw_line.lower().startswith('?'):
             return "N/A"
         else:
-            hostname = line.split('(')[0].strip()
+            hostname = raw_line.split('(')[0].strip()
     return hostname

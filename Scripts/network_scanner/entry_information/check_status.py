@@ -15,6 +15,6 @@ def check_status(ip):
     if status.returncode == 0:
         ttl_line = re.search(r'ttl=(\d+)', status.stdout.lower())
         ttl = ttl_line.group(1)
-        return ttl
+        return "Online", ttl
     else:
-        return False
+        return "Offline", "N/A"
