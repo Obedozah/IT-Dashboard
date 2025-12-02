@@ -1,6 +1,6 @@
 import socket
 
-def scan_ports(ip, port, timeout):
+def scan_ports(ip, timeout):
     open_ports = []
     closed_ports = []
     common_ports = [22, 23, 80, 443, 8080, 3306, 5432, 6379]
