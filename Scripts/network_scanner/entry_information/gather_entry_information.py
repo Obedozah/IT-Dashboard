@@ -21,5 +21,12 @@ def gather_entry_information(local_arp_data):
             e["status"], e["ttl"] = future.result()
 
     # Port Scanning with Threading WIP
+    portscan_futures = []
+    with ThreadPoolExecutor(max_workers=10) as exec:
+        for e in local_arp_data[0]:
+            portscan_futures.append(exec.submit(scan_ports, e["ip"], 0.1))
+
+        for e, future in zip(local_arp_data[0], portscan_futures):
+            e["open_ports"], e["closed_ports"] = future.result()
 
     return local_arp_data
