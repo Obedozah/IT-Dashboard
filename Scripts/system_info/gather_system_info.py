@@ -3,7 +3,7 @@ import platform
 from scripts.system_info import network_utils as net
 
 def gather_system_info():
-
+    
     # OS Info
     os = {
         "platform": platform.system(),

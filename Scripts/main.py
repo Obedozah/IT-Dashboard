@@ -10,7 +10,6 @@ if __name__ == "__main__":
 
     # Gather/Print System Information
     os, hardware_health, network_info = gsi.gather_system_info()
-    platform = os["platform"]
     print(f"OS: {json.dumps(os, indent = 2)}")
     print(f"Hardware Health: {json.dumps(hardware_health, indent = 2)}")
     print(f"Network Info: {json.dumps(network_info, indent = 2)}")
