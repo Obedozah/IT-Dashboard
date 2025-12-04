@@ -1,10 +1,19 @@
 import socket
 
 def scan_ports(ip, timeout):
+
+    # Port Variables
     open_ports = []
     closed_ports = []
-    common_ports = [22, 23, 80, 443, 8080, 3306, 5432, 6379]
+    common_ports = [
+        22, 80, 443,
+        53,
+        135, 137, 138, 139, 445,
+        3389, 5900,
+        23, 161
+    ]
 
+    # Check Ports
     for port in common_ports:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(timeout)
