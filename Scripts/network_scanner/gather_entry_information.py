@@ -1,7 +1,7 @@
 import socket
-from scripts.network_scanner.entry_information.vendor_lookup import vendor_lookup
-from scripts.network_scanner.entry_information.check_status import check_status
-from scripts.network_scanner.entry_information.scan_ports import scan_ports
+from scripts.network_scanner.scan_helper_scripts.vendor_lookup import vendor_lookup
+from scripts.network_scanner.scan_helper_scripts.check_status import check_status
+from scripts.network_scanner.scan_helper_scripts.scan_ports import scan_ports
 from concurrent.futures import ThreadPoolExecutor
 
 def gather_entry_information(entry_data):
