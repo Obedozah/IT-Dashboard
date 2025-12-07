@@ -13,8 +13,6 @@ def gather_system_info():
     os = {
         "platform": platform.system(),
         "platform_release": platform.release(),
-        "platform_version": platform.version(),
-        "kernel_version": platform.uname().release,
         "architecture": platform.machine(),
         "uptime_seconds": uptime_seconds,
         "uptime_hours": uptime_hours
