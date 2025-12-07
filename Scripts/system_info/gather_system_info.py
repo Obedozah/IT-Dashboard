@@ -42,17 +42,18 @@ def gather_system_info():
     hardware_health = {
         # CPU
         "cpu_physical_cores": psutil.cpu_count(),
-        "cpu_logical_cores": psutil.cpu_count(logical=True),
-        "cpu_frequency_mhz": psutil.cpu_freq()._asdict(),
         "cpu_usage_percent": psutil.cpu_percent(interval=1),
 
         # Memory
         "memory_total": memory_total,
         "memory_total_mb": memory_total / mb_convert,
+        "memory_total_gb": memory_total / gb_convert,
         "memory_available": memory_available,
         "memory_available_mb": memory_available / mb_convert,
+        "memory_available_gb": memory_available / gb_convert,
         "memory_used": memory_used,
         "memory_used_mb": memory_used / mb_convert,
+        "memory_used_gb": memory_used / gb_convert,
         "memory_used_percent": psutil.virtual_memory().percent,
 
         # Disk Usage
