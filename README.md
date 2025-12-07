@@ -1,2 +1,2 @@
 # IT-Dashboard
-First full stack local network IT Dashboard with Python/Flask
+Full Stack Lan Discovery Device w/Python, Flask, React
