@@ -1,0 +1,12 @@
+.footer {
+    display: flex;
+    flex-direction: row;
+    padding: 1vh 2vw;
+    justify-content: center;
+
+    background-color: #CCB589;
+}
+
+p {
+    font-size: clamp(1em, 1.5vw, 2em);
+}

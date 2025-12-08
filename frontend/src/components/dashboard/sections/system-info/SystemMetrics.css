@@ -1,0 +1,6 @@
+.system-metrics {
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    border-color: orange;
+}

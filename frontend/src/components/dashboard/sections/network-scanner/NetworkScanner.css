@@ -1,0 +1,6 @@
+.network-scanner {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: red;
+}
