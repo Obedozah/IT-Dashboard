@@ -1,3 +1,4 @@
+import {useState, useEffect} from 'react';
 import './SystemMetrics.css';
 import OsPanel from './panels/OsPanel';
 import NetworkPanel from './panels/NetworkPanel';
@@ -6,19 +7,53 @@ import MemoryHealthPanel from './panels/MemoryHealthPanel';
 import DiskPanel from './panels/DiskPanel';
 
 function SystemMetrics() {
+
+    const [metrics, setMetrics] = useState({});
+
+    useEffect(() => {
+        let isMounted = true;
+
+        async function getSystemMetrics() {
+            try {
+                const response = await fetch('http://127.0.0.1:5000/device');
+                const data = await response.json();
+                if (isMounted) {
+                    setMetrics(data);
+                }
+            } catch (err) {
+                console.log("Failed to get Metrics:", err);
+            }
+        }
+        
+        getSystemMetrics();
+
+        const intervalId = setInterval(getSystemMetrics, 1000);
+
+        return () => {
+            isMounted = false;
+            clearInterval(intervalId);
+        }
+    }, []);
+
     return (
         <section className="system-metrics">
-            <div className="os-network">
-                <OsPanel/>
-                <NetworkPanel/>
+            <h2>System Metrics</h2>
+            <div className="system-metrics-panels">
+                <div className="os-network">
+                    <OsPanel OsMetrics={metrics.os || {}}/>
+                    <NetworkPanel NetworkMetrics={metrics.network_info || {}}/>
+                </div>
+                <div className="cpu">
+                    <CpuHealthPanel/>
+                </div>
+                <div className="memory">
+                    <MemoryHealthPanel/>
+                </div>
+                <div className="disks">
+                    <DiskPanel/>
+                </div>        
             </div>
-            <div className="cpu-memory">
-                <CpuHealthPanel/>
-                <MemoryHealthPanel/>
-            </div>
-            <div className="disks">
-                <DiskPanel/>
-            </div>
+            <button className="network-scanner-button">Scan and Analyze LAN</button>
         </section>
     )
 }

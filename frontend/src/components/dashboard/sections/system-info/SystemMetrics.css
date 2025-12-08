@@ -1,6 +1,38 @@
 .system-metrics {
     display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-color: rgb(77, 26, 178);
+    align-items: center;
+    background-color: #353534;
+    width: 100%;
+}
+
+.system-metrics-panels {
+    display: flex;
     flex-direction: row;
     border-style: solid;
     border-color: orange;
+    width: 80%;
+    justify-content: space-between;
+}
+
+.network-scanner-button {
+    background-color: #6A6A6A;
+}
+
+.system-metrics h2, .system-metrics button {
+    color: #D8CCB7;
+    font-size: clamp(2rem, 2.5vw, 4rem);
+}
+
+.system-metrics button {
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #D8CCB7;
+    border-width: 2px;
+}
+
+.os-network {
+    width: clamp(60rem, 25vw, 70rem);
 }

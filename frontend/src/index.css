@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 * {
     margin: 0;
@@ -16,14 +16,20 @@ code {
 h1 {
     font-weight: 500;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #292929
 }
 
-h2 {
+h2, button {
     font-weight: 400;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-p {
-    font-weight: 400;
+p, span {
+    font-weight: 600;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #292929;
+}
+
+.panel {
+    filter: drop-shadow(0 4px 12px rgba(216, 204, 183, 0.5));
 }

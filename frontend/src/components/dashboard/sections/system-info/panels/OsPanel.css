@@ -1,3 +1,32 @@
 .os-panel {
-    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.os-panel span {
+    font-size: clamp(1rem, 1.5vw, 1.75rem);
+}
+
+.os-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0.5rem;
+}
+
+.os-row:nth-child(odd) {
+    background-color: #A6A6A6;
+}
+
+.os-row:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.os-row:nth-child(even) {
+    background-color: #C5C2BA;
+}
+
+.os-row:nth-child(4) {
+    border-radius: 0 0 5px 5px;
 }

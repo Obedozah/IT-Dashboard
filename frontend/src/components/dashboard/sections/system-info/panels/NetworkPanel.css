@@ -1,3 +1,31 @@
 .network-panel {
-    border-style: solid;
+    display: flex;
+    flex-direction: column;
+}
+
+.network-panel span {
+    font-size: clamp(1rem, 1.5vw, 1.75rem);
+}
+
+.network-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0.5rem
+}
+
+.network-row:nth-child(odd) {
+    background-color: #A6A6A6;
+}
+
+.network-row:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.network-row:nth-child(even) {
+    background-color: #C5C2BA;
+}
+
+.network-row:nth-child(6) {
+    border-radius: 0 0 5px 5px;
 }
