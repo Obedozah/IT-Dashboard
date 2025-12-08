@@ -10,7 +10,7 @@ def get_default_interface():
 
     # Pick interface that is UP and has an IPv4 address
     for interface, iface_stats in stats.items():
-        if iface_stats.isup and interface in addrs:
+        if iface_stats.isup and interface in addrs and not interface.startswith("lo"):
             for addr in addrs[interface]:
                 if addr.family == socket.AF_INET:
                     return interface

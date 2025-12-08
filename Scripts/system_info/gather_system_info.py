@@ -10,8 +10,11 @@ def gather_system_info():
     uptime_seconds = int(time.time()) - psutil.boot_time()
     uptime_hours = str(datetime.timedelta(seconds=uptime_seconds))
 
+    os_platform = platform.system()
+    if (os_platform == "Darwin"): os_platform = "macOS"
+
     os = {
-        "platform": platform.system(),
+        "platform": os_platform,
         "platform_release": platform.release(),
         "architecture": platform.machine(),
         "uptime_seconds": uptime_seconds,
