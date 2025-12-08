@@ -2,7 +2,7 @@ import json
 import time
 from scripts.system_info import gather_system_info as gsi
 from scripts.network_scanner.arp_sweep import arp_sweep
-from scripts.network_scanner.entry_information.gather_entry_information import gather_entry_information as gei
+from scripts.network_scanner.gather_entry_information import gather_entry_information as gei
 
 
 if __name__ == "__main__":
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     print(f"Network Info: {json.dumps(network_info, indent = 2)}")
 
     # Sweep LAN/Print Gathered System Info
-    arp_sweep_data = arp_sweep.arp_sweep(network_info)
+    arp_sweep_data = arp_sweep(network_info)
     print(f"Arp Sweep: {json.dumps(gei(arp_sweep_data), indent = 2)}")
 
     end_time = time.time()
