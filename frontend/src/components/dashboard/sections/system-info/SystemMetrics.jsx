@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react';
+
 import './SystemMetrics.css';
 import OsPanel from './panels/OsPanel';
 import NetworkPanel from './panels/NetworkPanel';
@@ -7,34 +7,7 @@ import CpuHealthPanel from './panels/CpuHealthPanel';
 import MemoryPanel from './panels/MemoryPanel';
 import MemoryHealthPanel from './panels/MemoryHealthPanel';
 
-function SystemMetrics() {
-
-    const [metrics, setMetrics] = useState({});
-
-    useEffect(() => {
-        let isMounted = true;
-
-        async function getSystemMetrics() {
-            try {
-                const response = await fetch('/device');
-                const data = await response.json();
-                if (isMounted) {
-                    setMetrics(data);
-                }
-            } catch (err) {
-                console.log("Failed to get Metrics:", err);
-            }
-        }
-        
-        getSystemMetrics();
-
-        const intervalId = setInterval(getSystemMetrics, 1000);
-
-        return () => {
-            isMounted = false;
-            clearInterval(intervalId);
-        }
-    }, []);
+function SystemMetrics({metrics}) {
 
     return (
         <section className="system-metrics">

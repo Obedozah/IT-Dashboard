@@ -3,7 +3,7 @@ import './ScannedDevices.css';
 function ScannedDevices() {
     return (
         <section className="scanned-devices">
-            Scanned Devices
+            <div className="label">Scanned Devices</div>
         </section>
     )
 }

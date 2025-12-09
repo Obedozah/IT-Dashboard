@@ -1,3 +1,44 @@
 .meta-data {
-    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #353534;
+    width: 100%;
+}
+
+.meta-data span {
+    font-size: clamp(2rem, 1.5vw, 2.25rem);
+}
+
+.meta-data .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    width: 40%;
+    background-color: #C5C2BA;
+}
+
+.meta-data .row:nth-child(odd) {
+    background-color: #A6A6A6;
+}
+
+.meta-data .row:nth-child(1) {
+    border-radius: 5px 5px 0 0;
+}
+
+.meta-data .row:nth-child(4) {
+    border-radius: 0 0 5px 5px;
+}
+
+.meta-data h2 {
+    color: #D8CCB7;
+    font-size: clamp(2rem, 2.5vw, 4rem);
+    margin: 2rem;
+    padding: 1rem;
+}
+
+.meta-data hr {
+    width: 95%;
+    color: #A6A6A6;
 }
