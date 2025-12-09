@@ -5,6 +5,7 @@ from scripts.network_scanner.full_scan import full_scan
 
 app = Flask(__name__)
 CORS(app)
+
 os, hardware_health, network_info = gsi.gather_system_info()
 
 @app.route('/device', methods= ["GET"])

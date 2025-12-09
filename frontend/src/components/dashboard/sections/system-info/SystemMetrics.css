@@ -35,7 +35,7 @@
 }
 
 .os-network {
-    width: clamp(60rem, 25vw, 70rem);
+    width: clamp(50rem, 25vw, 70rem);
 }
 
 .cpu {

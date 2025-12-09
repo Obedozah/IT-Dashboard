@@ -37,10 +37,10 @@
 }
 
 .memory-health-bar-portion {
-    background-color: #559751;
     border-radius: 5px;
-    height: 50%;
     width: 100%;
+    transition: height 0.5s ease;
+    transition: background-color 0.5 ease;
 }
 
 .value-box {
