@@ -1,0 +1,32 @@
+.memory-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.memory-panel span {
+    font-size: clamp(2rem, 1.5vw, 2.25rem);
+}
+
+.memory-panel .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #A6A6A6;
+    flex-grow: 1;
+    padding: 1.5rem 2rem;
+}
+
+.memory-panel .row:nth-child(even) {
+    background-color: #C5C2BA;
+}
+
+.memory-panel .label-row {
+    justify-content: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.memory-panel .row:nth-child(5) {
+    border-radius: 0 0 5px 5px;
+}

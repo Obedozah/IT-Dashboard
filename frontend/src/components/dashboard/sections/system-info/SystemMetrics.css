@@ -34,18 +34,27 @@
     border-width: 2px;
 }
 
-.os-network {
-    width: clamp(50rem, 25vw, 70rem);
+.cpu-memory {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: clamp (50rem, 25vw, 15rem);
 }
 
 .cpu {
-    width: clamp(5rem, 25vw, 10rem);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: clamp(70rem, 25vw, 15rem);
 }
 
 .memory {
-    width: clamp(5rem, 25vw, 10rem);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    width: clamp(70rem, 25vw, 15rem);
 }
 
-.disks {
-    width: clamp(20rem, 25vw, 35rem);
+.os-network {
+    width: clamp(70rem, 25vw, 70rem);
 }

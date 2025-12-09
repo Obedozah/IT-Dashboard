@@ -25,42 +25,33 @@ def gather_system_info():
     memory_total = psutil.virtual_memory().total
     memory_available = psutil.virtual_memory().available
     memory_used = psutil.virtual_memory().used
+    memory_free = psutil.virtual_memory().free
     mb_convert = (1024 ** 2)
-
-    all_disks = []
     gb_convert = (1024 ** 3)
-    for disk in psutil.disk_partitions():
-        usage = psutil.disk_usage(disk.mountpoint)
-        if round(usage.used / gb_convert, 2) < 1: continue
-        all_disks.append({
-            "device": disk.device,
-            "mountpoint": disk.mountpoint,
-            "fstype": disk.fstype,
-            "total_gb": round(usage.total / gb_convert, 2),
-            "used_gb": round(usage.used / gb_convert, 2),
-            "free_gb": round(usage.free / gb_convert, 2),
-            "percent_used": usage.percent
-        })
+    cpu_frequency = psutil.cpu_freq()
 
     hardware_health = {
         # CPU
         "cpu_physical_cores": psutil.cpu_count(),
-        "cpu_usage_percent": psutil.cpu_percent(interval=1),
+        "cpu_usage_percent": round(psutil.cpu_percent(interval=1), 2),
+        "cpu_frequency_current": cpu_frequency.current,
+        "cpu_frequency_min": cpu_frequency.min,
+        "cpu_frequency_max": cpu_frequency.max,
 
         # Memory
         "memory_total": memory_total,
-        "memory_total_mb": memory_total / mb_convert,
-        "memory_total_gb": memory_total / gb_convert,
+        "memory_total_mb": round(memory_total / mb_convert, 2),
+        "memory_total_gb": round(memory_total / gb_convert,2 ),
         "memory_available": memory_available,
-        "memory_available_mb": memory_available / mb_convert,
-        "memory_available_gb": memory_available / gb_convert,
+        "memory_available_mb": round(memory_available / mb_convert, 2),
+        "memory_available_gb": round(memory_available / gb_convert, 2),
         "memory_used": memory_used,
-        "memory_used_mb": memory_used / mb_convert,
-        "memory_used_gb": memory_used / gb_convert,
-        "memory_used_percent": psutil.virtual_memory().percent,
-
-        # Disk Usage
-        "all_disks": all_disks
+        "memory_used_mb": round(memory_used / mb_convert, 2),
+        "memory_used_gb": round(memory_used / gb_convert, 2),
+        "memory_used_percent": round(psutil.virtual_memory().percent, 2),
+        "memory_free": memory_free,
+        "memory_free_mb": round(memory_free / mb_convert, 2),
+        "memory_free_gb": round(memory_free / gb_convert, 2),
     }
 
     # Network Information

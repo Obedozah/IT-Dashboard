@@ -4,14 +4,14 @@
 }
 
 .network-panel span {
-    font-size: clamp(1rem, 1.5vw, 1.75rem);
+    font-size: clamp(2rem, 1.5vw, 2.25rem);
 }
 
 .network-row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1rem 0.5rem
+    padding: 1.5rem 2rem
 }
 
 .network-row:nth-child(odd) {

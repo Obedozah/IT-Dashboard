@@ -1,21 +1,13 @@
 .cpu-health-panel {
     display: flex;
     flex-direction: column;
+    border-radius: 5px 5px 5px 5px;
     height: 100%;
-    width: 100%;
+    width: 25%;
 }
 
 .cpu-health-panel span {
-    font-size: clamp(1rem, 1.5vw, 1.75rem);
-}
-
-.label-box {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #A6A6A6;
-    border-radius: 5px 5px 0 0;
-    flex-grow: 1;
+    font-size: clamp(2rem, 1.5vw, 2.25rem);
 }
 
 .cpu-health-box {
@@ -23,7 +15,8 @@
     justify-content: center;
     align-items: center;
     background-color: #D8CCB7;
-    flex-grow: 15;
+    border-radius: 5px 5px 0 0;
+    flex-grow: 5;
 }
 
 .cpu-health-bar {
@@ -33,17 +26,16 @@
     justify-content: center;
     align-items: end;
     height: 90%;
-    width: 40%;
+    width: 30%;
 }
 
 .cpu-health-bar-portion {
     border-radius: 5px;
     width: 100%;
-    transition: height 0.5s ease;
-    transition: background-color 0.5 ease;
+    transition: height 0.5s ease, background-color 0.5s ease;
 }
 
-.value-box {
+.cpu-health-panel .value-box {
     display: flex;
     justify-content: center;
     align-items: center;

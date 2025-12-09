@@ -2,9 +2,10 @@ import {useState, useEffect} from 'react';
 import './SystemMetrics.css';
 import OsPanel from './panels/OsPanel';
 import NetworkPanel from './panels/NetworkPanel';
+import CpuPanel from './panels/CpuPanel';
 import CpuHealthPanel from './panels/CpuHealthPanel';
+import MemoryPanel from './panels/MemoryPanel';
 import MemoryHealthPanel from './panels/MemoryHealthPanel';
-import DiskPanel from './panels/DiskPanel';
 
 function SystemMetrics() {
 
@@ -43,15 +44,16 @@ function SystemMetrics() {
                     <OsPanel OsMetrics={metrics.os || {}}/>
                     <NetworkPanel NetworkMetrics={metrics.network_info || {}}/>
                 </div>
-                <div className="cpu">
-                    <CpuHealthPanel CpuHealthMetrics={metrics.hardware_health || {}}/>
+                <div className="cpu-memory">
+                    <div className="cpu">
+                        <CpuPanel CpuMetrics={metrics.hardware_health || {}}/>
+                        <CpuHealthPanel CpuHealthMetrics={metrics.hardware_health || {}}/>    
+                    </div>
+                    <div className="memory">
+                        <MemoryPanel MemoryMetrics={metrics.hardware_health || {}}/>
+                        <MemoryHealthPanel MemoryHealthMetrics={metrics.hardware_health || {}}/>
+                    </div>
                 </div>
-                <div className="memory">
-                    <MemoryHealthPanel MemoryHealthMetrics={metrics.hardware_health || {}}/>
-                </div>
-                <div className="disks">
-                    <DiskPanel DiskMetric={metrics.hardware_health || {}}/>
-                </div>        
             </div>
             <button className="network-scanner-button">Scan and Analyze LAN</button>
         </section>
