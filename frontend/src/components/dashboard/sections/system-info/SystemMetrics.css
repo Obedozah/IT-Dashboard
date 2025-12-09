@@ -1,8 +1,6 @@
 .system-metrics {
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-color: rgb(77, 26, 178);
     align-items: center;
     background-color: #353534;
     width: 100%;
@@ -11,11 +9,11 @@
 .system-metrics-panels {
     display: flex;
     flex-direction: row;
-    border-style: solid;
-    border-color: orange;
-    width: 65%;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
+    gap: 4rem;
     margin: 1rem;
+    flex-wrap: wrap;
 }
 
 .network-scanner-button {
@@ -25,6 +23,8 @@
 .system-metrics h2, .system-metrics button {
     color: #D8CCB7;
     font-size: clamp(2rem, 2.5vw, 4rem);
+    margin: 2rem;
+    padding: 1rem;
 }
 
 .system-metrics button {
@@ -44,4 +44,8 @@
 
 .memory {
     width: clamp(5rem, 25vw, 10rem);
+}
+
+.disks {
+    width: clamp(20rem, 25vw, 35rem);
 }

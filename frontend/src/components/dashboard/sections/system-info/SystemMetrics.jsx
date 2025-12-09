@@ -50,7 +50,7 @@ function SystemMetrics() {
                     <MemoryHealthPanel MemoryHealthMetrics={metrics.hardware_health || {}}/>
                 </div>
                 <div className="disks">
-                    <DiskPanel/>
+                    <DiskPanel DiskMetric={metrics.hardware_health || {}}/>
                 </div>        
             </div>
             <button className="network-scanner-button">Scan and Analyze LAN</button>
