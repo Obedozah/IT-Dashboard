@@ -1,3 +1,53 @@
 .memory-health-panel {
-    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.memory-health-panel span {
+    font-size: clamp(1rem, 1.5vw, 1.75rem);
+}
+
+.label-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A6A6A6;
+    border-radius: 5px 5px 0 0;
+    flex-grow: 1;
+}
+
+.memory-health-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D8CCB7;
+    flex-grow: 17.75;
+}
+
+.memory-health-bar {
+    background-color: #A6A6A6;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 90%;
+    width: 40%;
+}
+
+.memory-health-bar-portion {
+    background-color: #559751;
+    border-radius: 5px;
+    height: 50%;
+    width: 100%;
+}
+
+.value-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A6A6A6;
+    border-radius: 0 0 5px 5px;
+    flex-grow: 1;
 }

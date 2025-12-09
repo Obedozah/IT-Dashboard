@@ -44,10 +44,10 @@ function SystemMetrics() {
                     <NetworkPanel NetworkMetrics={metrics.network_info || {}}/>
                 </div>
                 <div className="cpu">
-                    <CpuHealthPanel/>
+                    <CpuHealthPanel CpuHealthMetrics={metrics.hardware_health || {}}/>
                 </div>
                 <div className="memory">
-                    <MemoryHealthPanel/>
+                    <MemoryHealthPanel MemoryHealthMetrics={metrics.hardware_health || {}}/>
                 </div>
                 <div className="disks">
                     <DiskPanel/>

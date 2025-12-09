@@ -13,8 +13,9 @@
     flex-direction: row;
     border-style: solid;
     border-color: orange;
-    width: 80%;
+    width: 65%;
     justify-content: space-between;
+    margin: 1rem;
 }
 
 .network-scanner-button {
@@ -35,4 +36,12 @@
 
 .os-network {
     width: clamp(60rem, 25vw, 70rem);
+}
+
+.cpu {
+    width: clamp(5rem, 25vw, 10rem);
+}
+
+.memory {
+    width: clamp(5rem, 25vw, 10rem);
 }
