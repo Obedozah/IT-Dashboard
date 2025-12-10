@@ -1,4 +1,15 @@
 .dashboard {
     display: flex;
     flex-direction: column;
+    background-color: #353534;
+}
+
+.network-scanner-container {
+    height: 0;
+    width: 100%;
+}
+
+.network-scanner-container.visible {
+    height: 100%;
+    width: 100%;
 }

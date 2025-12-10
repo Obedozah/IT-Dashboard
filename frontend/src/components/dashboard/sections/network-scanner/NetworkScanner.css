@@ -1,4 +1,15 @@
-.network-scanner {
+.network-scanner-content {
+    background-color: #353534;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+.scanned-devices-component {
+    width: 100%;
+    max-width: 1500px;
 }

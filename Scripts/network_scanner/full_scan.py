@@ -12,7 +12,7 @@ def full_scan(network_info):
 
     # Sweep meta data
     length = len(arp_sweep_data)
-    isolation_detected = (length <= 1)
+    isolation_detected = str((length <= 1))
     meta_data = {
         "device_count": len(arp_sweep_data),
         "scan_time": round(elapsed_time, 2),

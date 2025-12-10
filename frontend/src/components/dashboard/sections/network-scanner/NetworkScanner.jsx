@@ -2,14 +2,15 @@ import './NetworkScanner.css';
 import MetaData from './panels/MetaData';
 import ScannedDevices from './panels/ScannedDevices';
 
-function NetworkScanner() {
+function NetworkScanner({scanMetrics}) {
+
     return (
-        <section className="network-scanner">
+        <section className="network-scanner-content">
             <div className="meta-data">
-                <MetaData/>
+                <MetaData metaData={scanMetrics.meta_data}/>
             </div>
-            <div className="scanned-devices">
-                <ScannedDevices/>
+            <div className="scanned-devices-component">
+                <ScannedDevices scanMetrics={scanMetrics.arp_sweep_data}/>
             </div>    
         </section>
     )

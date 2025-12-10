@@ -35,5 +35,5 @@ p, span {
 }
 
 .panel {
-    filter: drop-shadow(0 4px 12px rgba(216, 204, 183, 0.5));
+    filter: drop-shadow(0 4px 12px rgba(4, 4, 4, 0.5));
 }

@@ -1,4 +1,4 @@
-
+import {useState} from 'react';
 import './SystemMetrics.css';
 import OsPanel from './panels/OsPanel';
 import NetworkPanel from './panels/NetworkPanel';
@@ -7,7 +7,8 @@ import CpuHealthPanel from './panels/CpuHealthPanel';
 import MemoryPanel from './panels/MemoryPanel';
 import MemoryHealthPanel from './panels/MemoryHealthPanel';
 
-function SystemMetrics({metrics}) {
+function SystemMetrics({metrics, getNetworkScan}) {
+    const [isScanning, setIsScanning] = useState(false);
 
     return (
         <section className="system-metrics">
@@ -28,7 +29,22 @@ function SystemMetrics({metrics}) {
                     </div>
                 </div>
             </div>
-            <button className="network-scanner-button">Scan and Analyze LAN</button>
+            <button
+                className={`network-scanner-button panel ${isScanning ? "loading" : ""}`}
+                onClick={async () => {
+                    if (!isScanning) {
+                        setIsScanning(true);
+                        await getNetworkScan();
+                        setIsScanning(false);
+                    }
+                }}
+            >
+                {isScanning ? (
+                    <span className="spinner" />
+                ) : (
+                    "Scan and Analyze LAN"
+                )}
+            </button>
         </section>
     )
 }

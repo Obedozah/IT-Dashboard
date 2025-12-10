@@ -42,6 +42,17 @@
     cursor: pointer;
 }
 
+.network-scanner-button.loading {
+    background-color: #6A6A6A;
+    color: #D8CCB7;
+}
+
+.network-scanner-button.loading:hover {
+    background-color: #6A6A6A;
+    color: #D8CCB7;
+    cursor: default;
+}
+
 .system-metrics button {
     border-radius: 10px;
     border-style: solid;
@@ -53,23 +64,44 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: clamp (50rem, 25vw, 15rem);
+    width: clamp(55rem, 25vw, 15rem);
 }
 
 .cpu {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: clamp(70rem, 25vw, 15rem);
+    width: clamp(55rem, 25vw, 15rem);
 }
 
 .memory {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: clamp(70rem, 25vw, 15rem);
+    width: clamp(55rem, 25vw, 15rem);
 }
 
 .os-network {
-    width: clamp(70rem, 25vw, 70rem);
+    width: clamp(55rem, 25vw, 70rem);
+}
+
+.spinner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 3px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    display: inline-block;
+}
+
+.spinner:hover {
+    color: #D8CCB7;
+    background-color: #6A6A6A;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
