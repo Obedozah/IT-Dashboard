@@ -23,11 +23,12 @@
     background-color: #A6A6A6;
 }
 
-.meta-data .row:nth-child(1) {
+.meta-data .label-row {
     border-radius: 5px 5px 0 0;
+    justify-content: center;
 }
 
-.meta-data .row:nth-child(4) {
+.meta-data .network-isolation-row {
     border-radius: 0 0 5px 5px;
 }
 

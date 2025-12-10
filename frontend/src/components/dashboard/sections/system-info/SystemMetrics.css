@@ -32,13 +32,14 @@
     font-size: clamp(2rem, 1.5vw, 2.25rem);
     margin: 3.5rem;
     padding: 1rem;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.2s ease, color 0.5s ease;
 }
 
 .system-metrics button:hover {
     background-color: #4e4e4e;
     color: #CCB589;
-    transition: background-color 0.5s ease, color 0.5s ease;
+    transition: background-color 0.2s ease, color 0.5s ease;
+    cursor: pointer;
 }
 
 .system-metrics button {
