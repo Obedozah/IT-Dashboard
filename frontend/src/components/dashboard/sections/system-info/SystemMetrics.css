@@ -16,6 +16,11 @@
     flex-wrap: wrap;
 }
 
+.os-network {
+    width: 100%;
+    max-width: 50em;
+}
+
 .network-scanner-button {
     background-color: #6A6A6A;
 }
@@ -64,25 +69,22 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: clamp(55rem, 25vw, 15rem);
+    width: 100%;
+    max-width: 50em;
 }
 
 .cpu {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: clamp(55rem, 25vw, 15rem);
+    width: 100%;
 }
 
 .memory {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    width: clamp(55rem, 25vw, 15rem);
-}
-
-.os-network {
-    width: clamp(55rem, 25vw, 70rem);
+    width: 100%;
 }
 
 .spinner {

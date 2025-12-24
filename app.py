@@ -23,7 +23,7 @@ current_os, hardware_health, network_info = gsi.gather_system_info()
 def gather_system_info():
     os, hardware_health, network_info = gsi.gather_system_info()
     system_info = {
-        "os": current_os,
+        "os": os,
         "hardware_health": hardware_health,
         "network_info": network_info
     }
@@ -31,17 +31,21 @@ def gather_system_info():
 
 @app.route('/scan', methods=["GET"])
 def scan():
-    _, _, network_info = gsi.gather_system_info()
-    meta_data, arp_sweep_data = full_scan(network_info)
-    scan_data = {
-        "meta_data": meta_data,
-        "arp_sweep_data": arp_sweep_data
-    }
-    return scan_data
-
+    try:
+        _, _, network_info = gsi.gather_system_info()
+        meta_data, arp_sweep_data = full_scan(network_info)
+        scan_data = {
+            "meta_data": meta_data,
+            "arp_sweep_data": arp_sweep_data
+        }
+        return scan_data
+    except Exception as e:
+        print("Scan Error:", repr(e))
+        return ({"Error": str(e)}), 500
+    
 def open_browser():
     webbrowser.open("http://127.0.0.1:5000")
 
 if __name__ == "__main__":
     threading.Timer(1, open_browser).start()
-    app.run()
+    app.run(use_reloader=False)

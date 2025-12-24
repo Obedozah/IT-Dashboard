@@ -20,7 +20,6 @@ def gather_system_info():
         "uptime_seconds": uptime_seconds,
         "uptime_hours": uptime_hours
     }
-
     # Hardware Health
     memory_total = psutil.virtual_memory().total
     memory_available = psutil.virtual_memory().available
